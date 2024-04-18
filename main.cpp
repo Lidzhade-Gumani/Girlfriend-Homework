@@ -1,27 +1,46 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(){
+int main() {
+    int age;
+    string gender;
+    bool attractive, kind;
 
-int height = 0;
-int looks = 0;
+    cout << "Enter your gender (male/female): ";
+    cin >> gender;
+    
+    cout << "Enter your age: ";
+    cin >> age;
+    
+    cout << "Is your potential partner kind? (1 for yes, 0 for no): ";
+    cin >> kind;
 
-cout << " Enter your looks(1-20) " << endl;
-cin >> looks;
+    cout << "Is your potential partner attractive? (1 for yes, 0 for no): ";
+    cin >> attractive;
 
-cout << " Enter your height(cm) " << endl;
-cin >> height;
+    
+    if (age >= 18) {
+        if (gender == "male") {
+            if (attractive || kind) {
+                cout << "You've found a potential partner, of age: " << age ;
+            } else {
+                cout << "we dont have a match for you!";
+            }
+        
+        } else if(gender == "female") {
+            if (attractive && kind) {
+                cout << "You've found a great partner, of age: " << age;
+            } else {
+                cout << " dont giveup keep searching for a partner!";
+            }
+        } else {
+            cout << "we dont have that gender!";
+        }
+    } else {
+        cout << "nooo You're too young to choose a partner!";
+    }
 
-
-if(looks > 16)
-	if(height < 180){
-cout << " You stand a chance, let's go out " << endl;
-}else if(looks <= 16 && height >= 180){
-cout << " Your looks won't cut it and youu're too tall " << endl;
-}else{
-cout << " Please enter valid info" << endl;
-}
-
-return 0;
+    return 0;
 }
